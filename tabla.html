@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="asis.js"></script>
+    <link href="asistente.css" rel="stylesheet">
+    <link href="asistente.html">
+    <title>Tabla</title>
+</head>
+<body>
+    <table id="liquidación" border="1">
+        <caption>Ejemplo de liquidación</caption>
+        <tbody>
+          <tr>
+            <td></td>
+            <th>A</th>
+            <th>B</th>
+          </tr>
+          <tr>
+            <th>1</th>
+            <td>A1</td>
+            <td>B1</td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td>A2</td>
+            <td>B2</td>
+          </tr>
+        </tbody>
+      </table>    
+<button id="modif" onclick="modifTabla()" >Modificar</button>
+<button onclick="genera_tabla()">genera t</button>
+<br>
+<div>
+  <table class="table" id="progresión">
+      <thead>
+          <th>Fecha</th>
+          <th>Importe</th>
+      </thead>
+      <tbody>
+
+      </tbody>
+  </table>
+</div>
+
+
+</body>
+<script>
+    loadLiquidación();
+</script>
+</html>
