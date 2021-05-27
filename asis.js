@@ -445,7 +445,7 @@ var cantFilas = nFin-nro+3
         total=total+monto
         cuenta=cuenta+1
         columnas=columnas+1  
-        console.log(total)
+
     } while (counter>columnas);
     OS=parseInt(haberMin[nroPer])*0.03+(total-parseInt(haberMin[nroPer]))*0.06;
     document.getElementById("tabla").rows[fila].cells[counter+2].textContent= OS.toFixed(2);
@@ -453,13 +453,14 @@ var cantFilas = nFin-nro+3
     document.getElementById("tabla").rows[fila].cells[0].textContent= '01/'+per.substring(4,6)+'/'+per.substring(0,4);
 
     //loop para el resto
+    total=0
     do {
 
         do{
         document.getElementById("tabla").rows[fila].cells[columnas+1].textContent= (document.getElementById("tabla").rows[fila-1].cells[columnas+1].textContent * coeficientesMagistrados[nro]).toFixed(2);
         total = total + document.getElementById("tabla").rows[fila-1].cells[columnas+1].textContent * coeficientesMagistrados[nro]
         columnas=columnas+1
-        console.log(total)//prueba
+        
         } while (counter>columnas)
     OS=parseInt(haberMin[nroPer])*0.03+(total-parseInt(haberMin[nroPer]))*0.06;
     document.getElementById("tabla").rows[fila].cells[counter+2].textContent= OS.toFixed(2);
