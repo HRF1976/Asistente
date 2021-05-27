@@ -3,7 +3,7 @@ let coeficienteMovilidad=[1,1,1,1,1,1,1,1,1.1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 
 let nPer=['20040101','20040201','20040301','20040401','20040501','20040601','20040701','20040801','20040901','20041001','20041101','20041201','20050101','20050201','20050301','20050401','20050501','20050601','20050701','20050801','20050901','20051001','20051101','20051201','20060101','20060201','20060301','20060401','20060501','20060601','20060701','20060801','20060901','20061001','20061101','20061201','20070101','20070201','20070301','20070401','20070501','20070601','20070701','20070801','20070901','20071001','20071101','20071201','20080101','20080201','20080301','20080401','20080501','20080601','20080701','20080801','20080901','20081001','20081101','20081201','20090101','20090201','20090301','20090401','20090501','20090601','20090701','20090801','20090901','20091001','20091101','20091201','20100101','20100201','20100301','20100401','20100501','20100601','20100701','20100801','20100901','20101001','20101101','20101201','20110101','20110201','20110301','20110401','20110501','20110601','20110701','20110801','20110901','20111001','20111101','20111201','20120101','20120201','20120301','20120401','20120501','20120601','20120701','20120801','20120901','20121001','20121101','20121201','20130101','20130201','20130301','20130401','20130501','20130601','20130701','20130801','20130901','20131001','20131101','20131201','20140101','20140201','20140301','20140401','20140501','20140601','20140701','20140801','20140901','20141001','20141101','20141201','20150101','20150201','20150301','20150401','20150501','20150601','20150701','20150801','20150901','20151001','20151101','20151201','20160101','20160201','20160301','20160401','20160501','20160601','20160701','20160801','20160901','20161001','20161101','20161201','20170101','20170201','20170301','20170401','20170501','20170601','20170701','20170801','20170901','20171001','20171101','20171201','20180101','20180201','20180301','20180401','20180501','20180601','20180701','20180801','20180901','20181001','20181101','20181201','20190101','20190201','20190301','20190401','20190501','20190601','20190701','20190801','20190901','20191001','20191101','20191201','20200101','20200201','20200301','20200401','20200501','20200601','20200701','20200801','20200901','20201001','20201101','20201201','20210101','20210201','20210301','20210401','20210501','20210601','20210701','20210801']
 
-let coeficientesMagistrados=[1,1,1,1.1,1,1,1,1,1,1,1.05,1,1,1.1,1,1,1,1.1,1,1.1,1,1,1,1,1.1,1,1.075,1.075,1,1,1.1,1,1.1,1.1,1,1,1,1,1,1,1,1,1,1.1,1.1,1.08,1,1,1,1,1,1,1,1]
+let coeficientesMagistrados=[1,1,1,1.1,1,1,1,1,1,1,1.05,1,1,1.1,1,1,1,1.1,1,1.1,1,1,1,1,1.1,1,1.075,1.075,1,1,1.1,1,1.1,1.1,1,1,1,1,1,1,1,1,1,1.1,1.1,1.075,1,1,1,1,1,1,1,1]
 
 let nPerMagistrados=['20170301','20170401','20170501','20170601','20170701','20170801','20170901','20171001','20171101','20171201','20180101','20180201','20180301','20180401','20180501','20180601','20180701','20180801','20180901','20181001','20181101','20181201','20190101','20190201','20190301','20190401','20190501','20190601','20190701','20190801','20190901','20191001','20191101','20191201','20200101','20200201','20200301','20200401','20200501','20200601','20200701','20200801','20200901','20201001','20201101','20201201','20210101','20210201','20210301','20210401','20210501','20210601','20210701','20210801']
 
@@ -361,9 +361,7 @@ var fechaHasta=aHasta+mHasta+"01"
 var nro=nPerMagistrados.indexOf(fechaDesde)
 var nFin=nPerMagistrados.indexOf(fechaHasta)
 var cantFilas = nFin-nro+3
-console.log(cantFilas) 
-console.log(fechaDesde)
-console.log(nFin)
+
 
         // Obtenemos la referencia del elemento body
     var body = document.getElementById("tablaLiqMagis");
@@ -416,7 +414,7 @@ console.log(nFin)
     //primer fila de conceptos proporcionados
     cuenta=1
     columnas=0
-    total=0
+    var total=0
     do {
         monto=document.getElementById('detalleLiquidación').rows[cuenta].cells[4].textContent / 30 *(31 - document.getElementById('día').value);
         document.getElementById("tabla").rows[1].cells[columnas+1].textContent= monto.toFixed(2);
@@ -430,13 +428,13 @@ console.log(nFin)
         var OS=parseInt(haberMin[nroPer])/30*(31-document.getElementById('día').value)*0.03+(total-parseInt(haberMin[nroPer]))*0.06;
         document.getElementById("tabla").rows[1].cells[counter+2].textContent= OS.toFixed(2);
         document.getElementById("tabla").rows[1].cells[0].textContent= document.getElementById('día').value+'/'+document.getElementById('mes').value+'/'+document.getElementById('año').value;
-
+        
     //segunda fila
     nroPer=nroPer+1 //número de período
     per=nPer[nroPer] //perído (20200101)
-    cuenta=1
-    columnas=0
-    total=0
+    cuenta=1;
+    columnas=0;
+    total=0;
     
     fila=2
     var nro=nPerMagistrados.indexOf(per)
@@ -447,7 +445,7 @@ console.log(nFin)
         total=total+monto
         cuenta=cuenta+1
         columnas=columnas+1  
-
+        console.log(total)
     } while (counter>columnas);
     OS=parseInt(haberMin[nroPer])*0.03+(total-parseInt(haberMin[nroPer]))*0.06;
     document.getElementById("tabla").rows[fila].cells[counter+2].textContent= OS.toFixed(2);
@@ -461,6 +459,7 @@ console.log(nFin)
         document.getElementById("tabla").rows[fila].cells[columnas+1].textContent= (document.getElementById("tabla").rows[fila-1].cells[columnas+1].textContent * coeficientesMagistrados[nro]).toFixed(2);
         total = total + document.getElementById("tabla").rows[fila-1].cells[columnas+1].textContent * coeficientesMagistrados[nro]
         columnas=columnas+1
+        console.log(total)//prueba
         } while (counter>columnas)
     OS=parseInt(haberMin[nroPer])*0.03+(total-parseInt(haberMin[nroPer]))*0.06;
     document.getElementById("tabla").rows[fila].cells[counter+2].textContent= OS.toFixed(2);
@@ -480,6 +479,7 @@ console.log(nFin)
     columnas=1
     document.getElementById("tabla").rows[cantFilas-1].cells[0].textContent= "Totales";
     do {
+        total=0;
         for (var i = 1; i < cantFilas-1; i++) {    
             total= total + parseFloat(document.getElementById("tabla").rows[i].cells[columnas].textContent);
         }
