@@ -148,7 +148,207 @@
 </div> 
     </section>
     <hr />
+<hr>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/bulma.css" rel="stylesheet">
+    <script src="./js/asis.js"></script>
+    <title>Simulador de SICA</title>
+</head>
+
+<body>
+
+
+    <section>
+        <div class="level has-text-white has-background-link has-text-weight-semibold p-5 mb-3">
+            <img src="https://intranetanses.anses.gob.ar/img/logo-30anios.png">
+            <p class="is-size-3 pl-4">
+                Cálculos básicos de cómputos y liquidaciones
+            </p>
+
+        </div>
+    </section>
+
+    <hr />
+    <div class="columns is-mobile is-centered">
+
+        <div class="column is-10">
+            <div class="box">
+                <section id="Leyes">
+                    <div class="hero is-small is-info" style="padding: 5px;">
+                        <p class="title">SICA</p>
+
+                        <p class="subtitle">Calcular tiempos para determinacion de derecho</p>
+                    </div>
+
+
+                    <div class="columns" style="margin-top:1px">
+                        <div class="column is-one-quarter">
+
+                            <p class="subtitle" style="margin-top: 7.5px">Desde</p>
+                            <input id="dde" type="date" class="input is-link" style="text-align:right">
+
+
+                        </div>
+                        <div class="column is-one-quarter">
+
+                            <p class="subtitle" style="margin-top: 7.5px">Hasta</p>
+                            <input id="hta" type="date" class="input is-link" style="text-align:right">
+                        </div>
+
+			 <div class="column is-one-quarter">
+
+                            <p class="subtitle" style="margin-top: 7.5px">Tipo de servicio</p>
+                            <div class="select is-fullwidth">
+
+			<select class="is-12" onchange="" id="tipo" style="text-align-last: right;">
+		    <option value='Comunes'>Comunes</option>
+                    <option value='Docente'>Docente</option>
+                    <option value='Investigador'>Investigador</option>
+                    <option value='Calorías'>Calorías</option>
+                    <option value='Otra_Caja'>Otra_Caja</option>
+                    <option value='PJN'>PJN</option>
+                    <option value='Cancillería'>Cancillería</option>
+                    <option value='Otros_A'>Otros_A</option>
+                    <option value='Otros_B'>Otros_B</option>
+                    <option value='Otros_C'>Otros_C</option>
+
+		 </select>
+	</div>
+
+
+                        </div>
+                        <div class="column is-one-fifth">
+
+                            <button class="button is-success is-medium is-fullwidth inputDisabled" onclick="agregarPeríodos()"
+                                type="button" style="margin-top: 2.5em;" title="Agregar período">Agregar</button>
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="columns is-mobile is-centered">
+                        <div class="box is-8">
+                            <table id="tablaSICA" class="table is-8 is-striped is-centered">
+                                
+                                <tr>
+                                    <th>Desde</th>
+                                    <th>Hasta</th>
+                                    <th align="center">Años</th>
+                                    <th align="center">Meses</th>
+                                    <th align="center">Días</th>
+                                    <th align="center">Tipo de servicios</th>
+				    <th align="center">Computar</th>
+
+                                </tr>
+                                <TBody>
+
+                                </TBody>
+                                <tfoot>
+                                    <th>Tiempo total</th>
+                                    <th></th>
+                                    <th align="center">0</th>
+                                    <th align="center">0</th>
+                                    <th align="center">0</th>
+                                 <th></th>
+                                 <th></th>
+
+                                </tfoot>
+                            </table>
+ <table id="totSICA" class="table is-8 is-striped is-centered">
+                                
+                                <tr>
+                                    <th>Categoría</th>
+                                    <th align="center">%</th>
+                                    
+
+                                </tr>
+                                <TBody>
+                                <tr hidden>
+				<td>Comunes</td>
+				<td></td>
+                                </tr>
+
+                                <tr hidden>
+				<td>Docente</td>
+				<td></td>
+
+                                <tr hidden>
+				<td>Investigador</td>
+				<td></td>
+
+                                <tr hidden>
+				<td>Calorías</td>
+				<td></td>
+
+                                <tr hidden>
+				<td>Otra_Caja</td>
+				<td></td>
+
+                                <tr hidden>
+				<td>PJN</td>
+				<td></td>
+
+                                <tr hidden>
+				<td>Cancillería</td>
+				<td></td>
+
+                                <tr hidden>
+				<td>Otros A</td>
+				<td></td>
+
+                                <tr hidden>
+				<td>Otros B</td>
+				<td></td>
+
+                                <tr hidden>
+				<td>Otros C</td>
+				<td></td>
+
+                                </tr>
+                                </TBody>
+                                <tfoot>
+                                    <th>Tiempo total</th>
+                                    <th></th>
+
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    </div>
+<p>Por el momento el presente aplicativo no deduce simultaneidades</p>
+
+            </div>
+
+
+
+
+            <div class="columns" style="margin-top:1px">
+                <div class="column is-one-quarter">
+                    <button class="button is-danger is-medium is-fullwidth inputDisabled" id="borrar"
+                        onclick="document.location.reload()" type="button" title="Borrar todo">Borrar
+                        todo</button>
+
+                </div>
+
+                <div class="column is-one-quarter">
+                    <button class="button is-link is-medium is-fullwidth inputDisabled" id="volver"
+                        onclick="location.href='./asistente.html'" type="button"
+                        title="Volver a la página principal">Volver</button>
+
+                </div>
+
+            </div>
+
+
+</html>	
+<hr>
+	
 <div class="columns is-mobile is-centered">
 	
 	<div class="column is-10">
